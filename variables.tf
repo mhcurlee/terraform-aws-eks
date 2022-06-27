@@ -2,8 +2,8 @@ variable "cluster_name" {
   description = "The name of the EKS cluster"
 
   validation {
-    condition     = can(regex("^[0-9a-z\\-]*$", var.cluster_name))
-    error_message = "Cluster name can only contain lower case letters, numbers, and hyphens."
+    condition     = can(regex("^[a-z0-9][a-z0-9\\-]*[a-z0-9]$", var.cluster_name))
+    error_message = "Cluster name can only contain lower case letters, numbers, and hyphens.  The name must also start and end with a lower case alphanumeric character."
   }
 
   validation {
