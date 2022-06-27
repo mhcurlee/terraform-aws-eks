@@ -1,13 +1,16 @@
 output "host" {
-  value = data.aws_eks_cluster.cluster.endpoint
+  description = "The API address of the EKS cluster"
+  value       = data.aws_eks_cluster.cluster.endpoint
 
 }
 
 output "token" {
-  value = data.aws_eks_cluster_auth.cluster.token
+  description = "The API token for the EKS cluster"
+  value       = data.aws_eks_cluster_auth.cluster.token
 
 }
 
 output "cacert" {
-  value = base64decode(data.aws_eks_cluster.cluster.certificate_authority.0.data)
+  description = "The CA Cert for the EKS cluster"
+  value       = base64decode(data.aws_eks_cluster.cluster.certificate_authority.0.data)
 }
