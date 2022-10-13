@@ -108,7 +108,7 @@ module "eks" {
   source                        = "terraform-aws-modules/eks/aws"
   version                       = "18.30.0"
   cluster_name                  = local.cluster_name
-  cluster_version               = "1.22"
+  cluster_version               = "1.23"
   cluster_enabled_log_types     = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
   vpc_id                        = module.vpc.vpc_id
   subnet_ids                    = module.vpc.private_subnets
@@ -147,6 +147,7 @@ module "eks" {
       create_security_group                 = false
       attach_cluster_primary_security_group = true
       key_name                              = "ec2-ohio"
+      disk_size                             = 80
 
       min_size     = 2
       max_size     = 2

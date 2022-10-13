@@ -19,10 +19,10 @@ resource "helm_release" "prometheus" {
 
   set {
     name  = "alertmanager.persistentVolume.storageClass"
-    value = "gp2"
+    value = "ebs-sc"
   }
   set {
     name  = "server.persistentVolume.storageClass"
-    value = "gp2"
+    value = "ebs-sc"
   }
 }
